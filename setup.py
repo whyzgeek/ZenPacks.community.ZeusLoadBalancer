@@ -3,13 +3,13 @@
 # or saved.  Do not modify them directly here.
 # NB: PACKAGES is deprecated
 NAME = "ZenPacks.community.ZeusLoadBalancer"
-VERSION = "1.0"
-AUTHOR = "Simon Helson"
+VERSION = "2.0.2"
+AUTHOR = "Simon Helson, Kiarash Bodouhi"
 LICENSE = ""
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.community']
 PACKAGES = ['ZenPacks', 'ZenPacks.community', 'ZenPacks.community.ZeusLoadBalancer']
 INSTALL_REQUIRES = []
-COMPAT_ZENOSS_VERS = ">=2.4"
+COMPAT_ZENOSS_VERS = ">=4.0"
 PREV_ZENPACK_NAME = ""
 # STOP_REPLACEMENTS
 ################################

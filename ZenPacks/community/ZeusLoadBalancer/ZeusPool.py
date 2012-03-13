@@ -37,30 +37,14 @@ class ZeusPool(DeviceComponent, ManagedEntity):
     )
 
     # Screen action bindings (and tab definitions)
-    factory_type_information = (
-        {
-            'id'             : 'ZeusPool',
-            'meta_type'      : 'Zeus Pool',
-            'description'    : 'Zeus Pool Description',
-            'icon'           : 'Device_icon.gif',
-            'product'        : 'ZeusPools',
-            'factory'        : 'manage_addZeusPool',
-            'immediate_view' : 'zeusPoolPerformance',
-            'actions'        :
-            (
-                { 'id'            : 'perf'
-                , 'name'          : 'perf'
-                , 'action'        : 'zeusPoolPerformance'
-                , 'permissions'   : (ZEN_VIEW, )
-                },
-                { 'id'            : 'templates'
-                , 'name'          : 'Templates'
-                , 'action'        : 'objTemplates'
-                , 'permissions'   : (ZEN_CHANGE_SETTINGS, )
-                },
-            )
-        },
-    )
+    factory_type_information = ({
+                'actions': ({
+                    'id': 'perfConf',
+                    'name': 'Template',
+                    'action': 'objTemplates',
+                    'permissions': (ZEN_CHANGE_SETTINGS,),
+                    },),
+                    },)
 
     def device(self):
         return self.zeus()

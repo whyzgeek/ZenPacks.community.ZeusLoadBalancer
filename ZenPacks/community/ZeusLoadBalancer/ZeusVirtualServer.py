@@ -31,30 +31,14 @@ class ZeusVirtualServer(DeviceComponent, ManagedEntity):
     )
 
     # Screen action bindings (and tab definitions)
-    factory_type_information = (
-        {
-            'id'             : 'ZeusVirtualServer',
-            'meta_type'      : 'Zeus Virtual Server',
-            'description'    : 'Zeus Virtual Server Description',
-            'icon'           : 'Device_icon.gif',
-            'product'        : 'ZeusVirtualServers',
-            'factory'        : 'manage_addZeusVS',
-            'immediate_view' : 'zeusVSPerformance',
-            'actions'        :
-            (
-                { 'id'            : 'perf'
-                , 'name'          : 'perf'
-                , 'action'        : 'zeusVSPerformance'
-                , 'permissions'   : (ZEN_VIEW, )
-                },
-                { 'id'            : 'templates'
-                , 'name'          : 'Templates'
-                , 'action'        : 'objTemplates'
-                , 'permissions'   : (ZEN_CHANGE_SETTINGS, )
-                },
-            )
-        },
-    )
+    factory_type_information = ({
+                'actions': ({
+                    'id': 'perfConf',
+                    'name': 'Template',
+                    'action': 'objTemplates',
+                    'permissions': (ZEN_CHANGE_SETTINGS,),
+                    },),
+                    },)
 
     def device(self):
         return self.zeus()

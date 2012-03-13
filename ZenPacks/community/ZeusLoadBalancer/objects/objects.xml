@@ -2,6 +2,9 @@
 <objects>
 <!-- ('', 'zport', 'dmd', 'Devices', 'Server', 'Zeus') -->
 <object id='/zport/dmd/Devices/Server/Zeus' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+<property id='zendoc' type='string'>
+Zeus Load Balancers
+</property>
 <property type="string" id="description" mode="w" >
 Zeus Load Balancers
 </property>
@@ -13,6 +16,9 @@ ZenPacks.community.ZeusLoadBalancer.ZeusLoadBalancer
 </property>
 <tomanycont id='rrdTemplates'>
 <object id='ZeusPool' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property id='zendoc' type='string'>
+Template to collect pool statistics
+</property>
 <property type="text" id="description" mode="w" >
 Template to collect pool statistics
 </property>
@@ -191,8 +197,14 @@ False
 <property type="boolean" id="hasSummary" mode="w" >
 True
 </property>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
 <tomanycont id='graphPoints'>
 <object id='poolTotalConn' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
 <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
 LINE
 </property>
@@ -247,6 +259,9 @@ True
 </property>
 <tomanycont id='graphPoints'>
 <object id='poolBytesInLo' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
 <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
 LINE
 </property>
@@ -954,6 +969,9 @@ True
 </property>
 <tomanycont id='graphPoints'>
 <object id='virtualserverHttpCacheHitRate' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
 <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
 LINE
 </property>
@@ -1011,6 +1029,9 @@ True
 </property>
 <tomanycont id='graphPoints'>
 <object id='virtualserverCurrentConn' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
 <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
 LINE
 </property>
@@ -1097,6 +1118,9 @@ True
 </property>
 <tomanycont id='graphPoints'>
 <object id='virtualserverGzip' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
 <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
 LINE
 </property>
@@ -1151,6 +1175,9 @@ True
 </property>
 <tomanycont id='graphPoints'>
 <object id='virtualserverGzipBytesSavedLo' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
 <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
 LINE
 </property>
@@ -1208,6 +1235,9 @@ True
 </property>
 <tomanycont id='graphPoints'>
 <object id='virtualserverTotalConn' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
 <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
 LINE
 </property>
@@ -1262,6 +1292,9 @@ True
 </property>
 <tomanycont id='graphPoints'>
 <object id='virtualserverConnectTimedOut' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
 <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
 LINE
 </property>
@@ -1372,8 +1405,14 @@ False
 <property type="boolean" id="hasSummary" mode="w" >
 True
 </property>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
 <tomanycont id='graphPoints'>
 <object id='virtualserverBytesInLo' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
 <property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
 LINE
 </property>
