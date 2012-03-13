@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml">
+    <adapter
+        factory=".info.ZeusLoadBalancerInfo"
+        for=".ZeusLoadBalancer.ZeusLoadBalancer"
+        provides=".interfaces.IZeusLoadBalancerInfo"
+        />
+
+    <adapter
+        factory=".info.ZeusVirtualServerInfo"
+        for=".ZeusVirtualServer.ZeusVirtualServer"
+        provides=".interfaces.IZeusVirtualServerInfo"
+        />
+
+    <adapter
+        factory=".info.ZeusPoolInfo"
+        for=".ZeusPool.ZeusPool"
+        provides=".interfaces.IZeusPoolInfo"
+        />
+
+
+    <!-- Include Browser Code -->
+    <include package=".browser"/>
+
+</configure>
+
