@@ -1,15 +1,15 @@
 
 ZenPacks.community.ZeusLoadBalancer-2.1.8-py2.7 -- for Zenoss 4.1.1
 
-Special Zenpack monitoring Riverbed Stingray/Zeus LoadBalanacers.
+Special Zenpack for monitoring Riverbed Stingray/Zeus LoadBalanacers.
 
-* It discovers all the Virtual Servers and the Pools and display them nicely as componets of Zeus device in Zenoss.
-* It graphs many useful peformance indicators of the device and its virtual servers and pools.
+* It discovers all the Virtual Servers and the Pools, displays them nicely as components of Zeus device 
+* It graphs many useful performance indicators of the load balancer and its virtual servers and pools.
 * It alerts if a pool becomes empty.
 
 Release notes for version 2.1.8
 -------------------------------
-1- A new daemon(based on zenperfsnmp) added, to collect the virtual servers and pools. This new daemon has following benefits:
+1- A new daemon (based on zenperfsnmp) added, to collect the virtual servers and pools. This new daemon has following benefits:
 	- It calculates the 64bit values out of SNMPv1 style two 32bit OIDs and save them in single 64bit RRD.
 	- It exposes number of active nodes in a pool as a single value by aggregating the state of each node registered in that pool.
 	  This enables adding threshold and graph for number active nodes.(creates pesudo datasource from multiple datasources)
