@@ -14,16 +14,19 @@ class ZeusVirtualServer(DeviceComponent, ManagedEntity):
     "Zeus Virtual Server Information"
     
     portal_type = meta_type = 'ZeusVirtualServer'
-
+    collectors = ('zeuscollector', 'zencommand',
+                                              'zenping')
     vsName = ""
     vsPort = 0
-    vsProtocol = ""
+    vsProtocol = -1
     snmpindex = -1
+    vsDefaultTrafficPool = ""
 
     _properties = (
         dict(id='vsName', type='string',  **_kw),
         dict(id='vsPort', type='int',  **_kw),
-        dict(id='vsProtocol', type='string',  **_kw)
+        dict(id='vsProtocol', type='int',  **_kw),
+        dict(id='vsDefaultTrafficPool', type='string',  **_kw)
     )
 
     _relations = (
@@ -52,6 +55,17 @@ class ZeusVirtualServer(DeviceComponent, ManagedEntity):
 
     def snmpIgnore(self):
         return ManagedEntity.snmpIgnore(self) or self.snmpindex < 0
-    
+
+    def manage_deleteComponent(self, REQUEST=None):
+        """
+        Delete VS
+        """
+        url = None
+        if REQUEST is not None:
+            url = self.device().virtualServers.absolute_url()
+        self.getPrimaryParent()._delObject(self.id)
+        if REQUEST is not None:
+                REQUEST['RESPONSE'].redirect(url)
+
 
 InitializeClass(ZeusVirtualServer)

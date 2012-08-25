@@ -18,27 +18,5 @@ class ZeusLoadBalancer(Device):
     
 
     
-    factory_type_information = (
-    {
-        'immediate_view' : 'deviceStatus',
-        'actions'        : (
-        { 'id'            : 'events'
-        , 'name'          : 'Events'
-        , 'action'        : 'viewEvents'
-        , 'permissions'   : (ZEN_VIEW, )
-        },
-        { 'id'            : 'perfServer'
-        , 'name'          : 'Graphs'
-        , 'action'        : 'viewDevicePerformance'
-        , 'permissions'   : (ZEN_VIEW, )
-        },
-        { 'id'            : 'edit'
-        , 'name'          : 'Edit'
-        , 'action'        : 'editDevice'
-        , 'permissions'   : (ZEN_CHANGE_DEVICE,)
-        },
-        )
-    },
-    )
 
 InitializeClass(ZeusLoadBalancer)

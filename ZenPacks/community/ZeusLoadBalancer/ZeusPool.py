@@ -5,7 +5,7 @@ from Products.ZenRelations.RelSchema import *
 from Products.ZenModel.DeviceComponent import DeviceComponent
 from Products.ZenModel.ManagedEntity import ManagedEntity
 from Products.ZenUtils.Utils import convToUnits
-
+from math import isnan
 from Products.ZenModel.ZenossSecurity import ZEN_VIEW, ZEN_CHANGE_SETTINGS
 
 _kw = dict(mode='w')
@@ -14,22 +14,27 @@ class ZeusPool(DeviceComponent, ManagedEntity):
     "Zeus Pool Information"
     
     portal_type = meta_type = 'ZeusPool'
+    collectors = ('zeuscollector', 'zencommand', 
+                              'zenping')
 
     poolName = ""
-    poolAlgorithm = ""
+    poolAlgorithm = -1
     poolNodes = -1
+    poolState = -1
+    poolDisabled = -1
+    poolFailPool = ""
+    poolPersistence = -1
+    poolActiveNodes = -1
     poolDraining = -1
-    poolFailPool = "None"
-    poolPersistence = ""
     snmpindex = -1
 
     _properties = (
         dict(id='poolName', type='string',  **_kw),
-        dict(id='poolAlgorithm', type='string',  **_kw),
+        dict(id='poolAlgorithm', type='int',  **_kw),
         dict(id='poolNodes', type='int',  **_kw),
-        dict(id='poolDraining', type='int',  **_kw),
+        dict(id='poolState', type='int',  **_kw),
         dict(id='poolFailPool', type='string',  **_kw),
-        dict(id='poolPersistence',type='string',  **_kw)
+        dict(id='poolPersistence',type='int',  **_kw)
     )
 
     _relations = (
@@ -58,6 +63,35 @@ class ZeusPool(DeviceComponent, ManagedEntity):
 
     def snmpIgnore(self):
         return ManagedEntity.snmpIgnore(self) or self.snmpindex < 0
-    
+
+    def poolDraining(self):
+        poolDraining = self.cacheRRDValue("poolDraining")
+        if poolDraining is not None and not isnan(poolDraining):
+            return int(poolDraining)
+        return -1
+
+    def poolDisabled(self):
+        poolDisabled = self.cacheRRDValue("poolDisabled")
+        if poolDisabled is not None and not isnan(poolDisabled):
+            return int(poolDisabled)
+        return -1
+
+    def poolActiveNodes(self):
+        poolActiveNodes = self.cacheRRDValue("poolActiveNodes")
+        if poolActiveNodes is not None and not isnan(poolActiveNodes):
+            return int(poolActiveNodes)
+        return -1
+
+    def manage_deleteComponent(self, REQUEST=None):
+        """
+        Delete Pool
+        """
+        url = None
+        if REQUEST is not None:
+            url = self.device().pools.absolute_url()
+        self.getPrimaryParent()._delObject(self.id)
+        if REQUEST is not None:
+                REQUEST['RESPONSE'].redirect(url)
+
 
 InitializeClass(ZeusPool)

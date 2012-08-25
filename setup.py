@@ -3,7 +3,7 @@
 # or saved.  Do not modify them directly here.
 # NB: PACKAGES is deprecated
 NAME = "ZenPacks.community.ZeusLoadBalancer"
-VERSION = "2.0.2"
+VERSION = "2.1.8"
 AUTHOR = "Simon Helson, Kiarash Bodouhi"
 LICENSE = ""
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.community']

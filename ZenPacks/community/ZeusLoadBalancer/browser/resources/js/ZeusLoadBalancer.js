@@ -25,6 +25,8 @@ ZC.ZeusPoolPanel = Ext.extend(ZC.ComponentGridPanel, {
                 {name: 'poolDraining'},
                 {name: 'poolFailPool'},
                 {name: 'poolPersistence'},
+                {name: 'poolState'},
+                {name: 'poolActiveNodes'},
             ],
             columns: [{
                 id: 'severity',
@@ -38,19 +40,29 @@ ZC.ZeusPoolPanel = Ext.extend(ZC.ComponentGridPanel, {
                 dataIndex: 'name',
                 header: _t('Name'),
             },{
-                id: 'poolAlgorithm',
-                dataIndex: 'poolAlgorithm',
-                header: _t('Algorithm'),
+                id: 'poolState',
+                dataIndex: 'poolState',
+                header: _t('State'),
                 width: 100
             },{
                 id: 'poolNodes',
                 dataIndex: 'poolNodes',
-                header: _t('Nodes'),
+                header: _t('Registered Nodes'),
+                width: 100
+            },{
+                id: 'poolActiveNodes',
+                dataIndex: 'poolActiveNodes',
+                header: _t('Active Nodes'),
                 width: 100
             },{
                 id: 'poolDraining',
                 dataIndex: 'poolDraining',
-                header: _t('Draining'),
+                header: _t('Draining Nodes'),
+                width: 100
+            },{
+                id: 'poolAlgorithm',
+                dataIndex: 'poolAlgorithm',
+                header: _t('Algorithm'),
                 width: 100
             },{
                 id: 'poolFailPool',
@@ -88,6 +100,7 @@ ZC.ZeusVirtualServerPanel = Ext.extend(ZC.ComponentGridPanel, {
                 {name: 'vsName'},
                 {name: 'vsPort'},
                 {name: 'vsProtocol'},
+                {name: 'vsDefaultTrafficPool'},
             ],
             columns: [{
                 id: 'severity',
@@ -110,6 +123,11 @@ ZC.ZeusVirtualServerPanel = Ext.extend(ZC.ComponentGridPanel, {
                 dataIndex: 'vsProtocol',
                 header: _t('Protocol'),
                 width: 220
+            },{
+                id: 'vsDefaultTrafficPool',
+                dataIndex: 'vsDefaultTrafficPool',
+                header: _t('Default Traffic Pool'),
+                width: 420
             }]
         });
         ZC.ZeusVirtualServerPanel.superclass.constructor.call(this, config);

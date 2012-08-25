@@ -11,6 +11,7 @@ class virtualservers(SnmpPlugin):
     '.1': 'vsName',
     '.2': 'vsPort',
     '.3': 'vsProtocol',
+    '.4': 'vsDefaultTrafficPool',
     }
     
     snmpGetTableMaps = (
